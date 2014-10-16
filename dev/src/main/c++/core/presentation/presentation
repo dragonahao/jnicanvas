@@ -1,0 +1,16 @@
+#include <UISpec.h>
+
+#include <Settings.h>
+#include <Configurable.h>
+
+#include <FloatSettings.h>
+#include <IntSettings.h>
+#include <StringSettings.h>
+#include <BoolSettings.h>
+
+#include <AuxMethodSettings.h>
+#include <CalcMethodSettings.h>
+#include <MacroMethod.h>
+#include <MacroCalcMethod.h>
+
+#include <PhysicsSettings.h>

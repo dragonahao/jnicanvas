@@ -1,0 +1,131 @@
+
+//
+// objectID:
+//	é o identificador de um objeto que poderá ser acessado
+//	pela interface. Ele pode ser um método de cálculo que 
+//	retorna uma curva ou uma coordenada, ou um parâmetro dos
+//	métodos de calculo
+//
+
+
+////////////////////////////////////////////////////////////////////
+//
+// COMANDOS NUMERICOS
+//
+// Preve a existencia de:
+//	- Um ponteiro para uma fisica
+//	- Uma lista de ponteiros para sub-fisicas (necessario?)
+//
+////////////////////////////////////////////////////////////////////
+
+//
+// Cria fisicas e sub-fisicas
+//
+Physics * createPhysics(string name);
+SubPhysics * createSubPhysics(string, Physics physics); // necessario?
+
+//
+// Verifica se fisicas e sub-fisicas foram criadas
+//
+bool checkPhysics(string name);
+bool checkSubPhysics(string name);
+
+
+//
+// set e set de parametros
+//
+void value(int v, int ID);
+void value(float v, int ID);
+void value(string v, int ID);
+void value(bool v, int ID);
+
+int value(int ID);
+float value(int ID);
+string value(int ID);
+bool value(int ID);
+
+
+// 
+// Calcula curvas
+//
+Curve curveCalc(void);
+Curve curveCalc(Coords coords);
+
+
+//
+// Calcula coordenadas
+//
+Coords coordCalc(void);  // necessario?
+Coords coordCalc(Coords coords);
+
+
+////////////////////////////////////////////////////////////////////
+//
+// COMANDOS DE INTERFACE
+//
+////////////////////////////////////////////////////////////////////
+
+// 
+// Requisita especificação atualizada da interface
+//
+UIProfile UISpec(void);
+
+
+//
+// Requisita ponteiro para objeto configuravel (parametro ou metodo de calculo);
+//
+Settings * object(int ID);
+
+
+//
+// Atualiza UI de acordo com comando executado (state-machine);
+//
+void UISpecUpdate(Command cmd);
+
+
+////////////////////////////////////////////////////////////////////
+//
+// COMANDOS DE CONTROLE
+//
+// Preve a existencia de listas de:
+//	- Curvas criadas
+//	- Coordenadas criadas
+//	- Comandos executados
+//
+////////////////////////////////////////////////////////////////////
+
+// 
+// Requisita comandos já executados
+//
+CommandList CommandHistory(void);
+Command getCommand(int cmdID);
+Command lastCommand(void);
+int lastCommandID(void);
+
+
+//
+// Requisita ID de curva/coordenada previamente criada a partir de um ID de comando
+//
+int getCurveID(int cmdID);
+int lastCurveID(void);
+int getCoordID(int cmdID);
+int lastCoordID(void);
+
+
+//
+// Requisita/atualiza/remove curva criada previamente
+//
+Curve getCurve(int curveID);
+void updateCurve(int curveID, Curve curve);
+void removeCurve(inr curveID);
+
+
+//
+// Requisita/atualiza/remove coordenada criada previamente
+//
+Coord getCoord(int coordID);
+void updateCoord(int coordID, Coord coord);
+void removeCoord(inr coordID);
+
+
+
