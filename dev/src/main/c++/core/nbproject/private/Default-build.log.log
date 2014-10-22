@@ -1,0 +1,442 @@
+g++ -I . -I numeric -I presentation -I datamodel -I control -I presentation/commands -o rpn main.cc numeric/*.cc presentation/*.cc datamodel/*.cc control/*.cc presentation/commands/*.cc
+In file included from datamodel/datamodel:3,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from main.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from main.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from main.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from main.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from main.cc:1:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from main.cc:1:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from control/Control.h:6,
+                 from main.cc:1:
+numeric/Physics.h:18: error: cannot declare field ‘Physics::dim’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+numeric/Physics.h:19: error: cannot declare field ‘Physics::precision’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/Physics.h:22: error: cannot declare field ‘Physics::oneC’ to be of abstract type ‘OneCurve’
+numeric/OneCurve.h:12: note:   because the following virtual functions are pure within ‘OneCurve’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:3,
+                 from numeric/OneCurve.h:3,
+                 from numeric/OneCurve.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/OneCurve.h:3,
+                 from numeric/OneCurve.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/OneCurve.h:3,
+                 from numeric/OneCurve.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/OneCurve.h:3,
+                 from numeric/OneCurve.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/OneCurve.cc:1:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/OneCurve.cc:1:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from datamodel/datamodel:3,
+                 from numeric/OneFluxFunction.h:1,
+                 from numeric/OneFluxFunction.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/OneFluxFunction.h:1,
+                 from numeric/OneFluxFunction.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/OneFluxFunction.h:1,
+                 from numeric/OneFluxFunction.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/OneFluxFunction.h:1,
+                 from numeric/OneFluxFunction.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneFluxFunction.cc:1:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from datamodel/datamodel:3,
+                 from numeric/Physics.h:2,
+                 from numeric/Physics.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/Physics.h:2,
+                 from numeric/Physics.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/Physics.h:2,
+                 from numeric/Physics.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/Physics.h:2,
+                 from numeric/Physics.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/Physics.h:3,
+                 from numeric/Physics.cc:1:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/Physics.h:3,
+                 from numeric/Physics.cc:1:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from numeric/Physics.cc:1:
+numeric/Physics.h:18: error: cannot declare field ‘Physics::dim’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+numeric/Physics.h:19: error: cannot declare field ‘Physics::precision’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/Physics.h:22: error: cannot declare field ‘Physics::oneC’ to be of abstract type ‘OneCurve’
+numeric/OneCurve.h:12: note:   because the following virtual functions are pure within ‘OneCurve’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+numeric/Physics.cc: In constructor ‘Physics::Physics()’:
+numeric/Physics.cc:8: error: cannot allocate an object of abstract type ‘OneFluxFunction’
+numeric/OneFluxFunction.h:12: note:   because the following virtual functions are pure within ‘OneFluxFunction’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+presentation/MacroMethod.cc: In member function ‘void MacroMethod::createMacro(std::string)’:
+presentation/MacroMethod.cc:15: error: cannot allocate an object of abstract type ‘MacroCalcMethod’
+presentation/MacroCalcMethod.h:12: note:   because the following virtual functions are pure within ‘MacroCalcMethod’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/BoolParameter.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+datamodel/BoolParameter.cc: In member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’:
+datamodel/BoolParameter.cc:41: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   since type ‘BoolParameter’ has pure virtual functions
+datamodel/BoolParameter.cc:44: error: cannot allocate an object of abstract type ‘BoolParameter’
+datamodel/BoolParameter.h:10: note:   since type ‘BoolParameter’ has pure virtual functions
+In file included from datamodel/FloatParameter.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+datamodel/FloatParameter.cc: In member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’:
+datamodel/FloatParameter.cc:57: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+datamodel/FloatParameter.cc:60: error: cannot allocate an object of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from datamodel/IntParameter.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+datamodel/IntParameter.cc: In member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’:
+datamodel/IntParameter.cc:57: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+datamodel/IntParameter.cc:60: error: cannot allocate an object of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from datamodel/StringParameter.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+datamodel/StringParameter.cc: In member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’:
+datamodel/StringParameter.cc:41: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   since type ‘StringParameter’ has pure virtual functions
+datamodel/StringParameter.cc:44: error: cannot allocate an object of abstract type ‘StringParameter’
+datamodel/StringParameter.h:9: note:   since type ‘StringParameter’ has pure virtual functions
+In file included from datamodel/datamodel:3,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/CmdlineUI.h:4,
+                 from control/CmdlineUI.cc:2:
+numeric/Physics.h:18: error: cannot declare field ‘Physics::dim’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+numeric/Physics.h:19: error: cannot declare field ‘Physics::precision’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/Physics.h:22: error: cannot declare field ‘Physics::oneC’ to be of abstract type ‘OneCurve’
+numeric/OneCurve.h:12: note:   because the following virtual functions are pure within ‘OneCurve’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:3,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/Control.cc:2:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/Control.cc:2:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/Control.cc:2:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/Control.cc:2:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/Control.cc:2:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/Control.cc:2:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from control/Control.h:6,
+                 from control/Control.cc:2:
+numeric/Physics.h:18: error: cannot declare field ‘Physics::dim’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+numeric/Physics.h:19: error: cannot declare field ‘Physics::precision’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/Physics.h:22: error: cannot declare field ‘Physics::oneC’ to be of abstract type ‘OneCurve’
+numeric/OneCurve.h:12: note:   because the following virtual functions are pure within ‘OneCurve’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+control/Control.cc: In member function ‘void Control::createPhysics(std::string)’:
+control/Control.cc:38: error: cannot allocate an object of abstract type ‘Physics’
+numeric/Physics.h:14: note:   because the following virtual functions are pure within ‘Physics’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+control/Control.cc:41: error: cannot allocate an object of abstract type ‘Physics’
+numeric/Physics.h:14: note:   since type ‘Physics’ has pure virtual functions
+control/Control.cc:44: error: cannot allocate an object of abstract type ‘Physics’
+numeric/Physics.h:14: note:   since type ‘Physics’ has pure virtual functions
+In file included from datamodel/datamodel:3,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/UI.cc:1:
+numeric/Physics.h:18: error: cannot declare field ‘Physics::dim’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+numeric/Physics.h:19: error: cannot declare field ‘Physics::precision’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/Physics.h:22: error: cannot declare field ‘Physics::oneC’ to be of abstract type ‘OneCurve’
+numeric/OneCurve.h:12: note:   because the following virtual functions are pure within ‘OneCurve’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:3,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+datamodel/FloatParameter.h:49: error: invalid abstract return type for member function ‘virtual FloatParameter FloatParameter::operator=(const FloatParameter&)’
+datamodel/FloatParameter.h:31: note:   because the following virtual functions are pure within ‘FloatParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:4,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+datamodel/IntParameter.h:27: error: invalid abstract return type for member function ‘virtual IntParameter IntParameter::operator=(const IntParameter&)’
+datamodel/IntParameter.h:9: note:   because the following virtual functions are pure within ‘IntParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:5,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+datamodel/StringParameter.h:26: error: invalid abstract return type for member function ‘virtual StringParameter StringParameter::operator=(const StringParameter&)’
+datamodel/StringParameter.h:9: note:   because the following virtual functions are pure within ‘StringParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from datamodel/datamodel:6,
+                 from numeric/Physics.h:2,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+datamodel/BoolParameter.h:27: error: invalid abstract return type for member function ‘virtual BoolParameter BoolParameter::operator=(const BoolParameter&)’
+datamodel/BoolParameter.h:10: note:   because the following virtual functions are pure within ‘BoolParameter’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+In file included from numeric/OneCurve.h:4,
+                 from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+numeric/OneFluxFunction.h:16: error: cannot declare field ‘OneFluxFunction::psi’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+In file included from numeric/Physics.h:3,
+                 from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+numeric/OneCurve.h:16: error: cannot declare field ‘OneCurve::x’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/OneCurve.h:17: error: cannot declare field ‘OneCurve::family’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+In file included from control/Control.h:6,
+                 from control/UI.h:5,
+                 from control/XmlUI.h:5,
+                 from control/XmlUI.cc:1:
+numeric/Physics.h:18: error: cannot declare field ‘Physics::dim’ to be of abstract type ‘IntParameter’
+datamodel/IntParameter.h:9: note:   since type ‘IntParameter’ has pure virtual functions
+numeric/Physics.h:19: error: cannot declare field ‘Physics::precision’ to be of abstract type ‘FloatParameter’
+datamodel/FloatParameter.h:31: note:   since type ‘FloatParameter’ has pure virtual functions
+numeric/Physics.h:22: error: cannot declare field ‘Physics::oneC’ to be of abstract type ‘OneCurve’
+numeric/OneCurve.h:12: note:   because the following virtual functions are pure within ‘OneCurve’:
+presentation/Settings.h:41: note: 	virtual ProfileSettings* Settings::profile(int)
+make: *** [one] Error 1

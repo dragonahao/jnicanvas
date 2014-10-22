@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="90">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="control">
+        <df name="rapidxml-1.13">
+          <in>main.cc</in>
+          <in>rapidxml.hpp</in>
+          <in>rapidxml_iterators.hpp</in>
+          <in>rapidxml_print.hpp</in>
+          <in>rapidxml_utils.hpp</in>
+        </df>
+        <in>CmdlineUI.cc</in>
+        <in>CmdlineUI.h</in>
+        <in>Command.cc</in>
+        <in>Command.h</in>
+        <in>Control.cc</in>
+        <in>Control.h</in>
+        <in>Dispatcher.cc</in>
+        <in>Dispatcher.h</in>
+        <in>RPnDispatcher.h</in>
+        <in>UI.cc</in>
+        <in>UI.h</in>
+        <in>XmlUI.cc</in>
+        <in>XmlUI.h</in>
+      </df>
+      <df name="datamodel">
+        <in>BoolParameter.cc</in>
+        <in>BoolParameter.h</in>
+        <in>FloatParameter.cc</in>
+        <in>FloatParameter.h</in>
+        <in>IntParameter.cc</in>
+        <in>IntParameter.h</in>
+        <in>StringParameter.cc</in>
+        <in>StringParameter.h</in>
+      </df>
+      <df name="numeric">
+        <df name="saved_with_addToGui">
+          <in>OneCurve.cc</in>
+          <in>OneCurve.h</in>
+          <in>OneFluxFunction.cc</in>
+          <in>OneFluxFunction.h</in>
+          <in>Physics.cc</in>
+          <in>Physics.h</in>
+        </df>
+        <in>OneCurve.cc</in>
+        <in>OneCurve.h</in>
+        <in>OneFluxFunction.cc</in>
+        <in>OneFluxFunction.h</in>
+        <in>Physics.cc</in>
+        <in>Physics.h</in>
+      </df>
+      <df name="presentation">
+        <df name="commands">
+          <in>AddToMacroCommand.cc</in>
+          <in>AddToMacroCommand.h</in>
+          <in>BoolSetCommand.cc</in>
+          <in>BoolSetCommand.h</in>
+          <in>CalcCommand.cc</in>
+          <in>CalcCommand.h</in>
+          <in>CreateMacroCommand.cc</in>
+          <in>CreateMacroCommand.h</in>
+          <in>FloatSetCommand.cc</in>
+          <in>FloatSetCommand.h</in>
+          <in>IntSetCommand.cc</in>
+          <in>IntSetCommand.h</in>
+          <in>StringSetCommand.cc</in>
+          <in>StringSetCommand.h</in>
+        </df>
+        <in>AuxMethodSettings.cc</in>
+        <in>AuxMethodSettings.h</in>
+        <in>BoolProfile.cc</in>
+        <in>BoolProfile.h</in>
+        <in>BoolSettings.cc</in>
+        <in>BoolSettings.h</in>
+        <in>CalcMethodSettings.cc</in>
+        <in>CalcMethodSettings.h</in>
+        <in>Configurable.cc</in>
+        <in>Configurable.h</in>
+        <in>FloatProfile.cc</in>
+        <in>FloatProfile.h</in>
+        <in>FloatSettings.cc</in>
+        <in>FloatSettings.h</in>
+        <in>IntProfile.cc</in>
+        <in>IntProfile.h</in>
+        <in>IntSettings.cc</in>
+        <in>IntSettings.h</in>
+        <in>MacroCalcMethod.cc</in>
+        <in>MacroCalcMethod.h</in>
+        <in>MacroMethod.cc</in>
+        <in>MacroMethod.h</in>
+        <in>PhysicsSettings.cc</in>
+        <in>PhysicsSettings.h</in>
+        <in>Profile.cc</in>
+        <in>Profile.h</in>
+        <in>ProfileSettings.cc</in>
+        <in>ProfileSettings.h</in>
+        <in>Settings.cc</in>
+        <in>Settings.h</in>
+        <in>SettingsType.h</in>
+        <in>StringProfile.cc</in>
+        <in>StringProfile.h</in>
+        <in>StringSettings.cc</in>
+        <in>StringSettings.h</in>
+        <in>UISpec.cc</in>
+        <in>UISpec.h</in>
+      </df>
+      <df name="profile">
+        <in>Layout.cc</in>
+        <in>Layout.h</in>
+        <in>TestPhysicsProfile.cc</in>
+        <in>TestPhysicsProfile.h</in>
+      </df>
+      <in>main.cc</in>
+    </df>
+  </logicalFolder>
+  <projectmakefile>makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
