@@ -1,7 +1,0 @@
-#include <AddToMacroCommand.h>
-#include <BoolSetCommand.h>
-#include <CalcCommand.h>
-#include <CreateMacroCommand.h>
-#include <FloatSetCommand.h>
-#include <IntSetCommand.h>
-#include <StringSetCommand.h>
