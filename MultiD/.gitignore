@@ -25,6 +25,9 @@ Makefile.in
 stamp-h1
 # tags files
 tags
+# "make check" detritus
+*.trs
+*.log
 # executables
 tADTADV
 tBlockTri2
@@ -37,6 +40,6 @@ tVector4
 tlabel
 tpolyroot
 ttrapfpe
-t/t
+t
 charplot
 display
