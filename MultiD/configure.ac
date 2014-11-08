@@ -27,37 +27,6 @@ AC_ARG_ENABLE([gui], [  --disable-gui           Compile without GUI],
 	esac], [gui=true])
 AM_CONDITIONAL([GUI], [test x$gui = xtrue])
 
-################################################################################
-# Choose which physics groups to build and distribute by commenting
-# or uncommenting the appropriate lines.  Then run "make Makefile" in
-# the top source directory.  Afterward, change to the directory of any
-# physics in one of the activated groups and run "make".  Also, running
-# "make dist" in the top source directory creates a tarball containing
-# only the activated physics groups.
-################################################################################
-
-# default_physics=true
-# hyst_multiphase_physics=true
-# mpf_multiphase_physics=true
-rcd_multiphase_physics=true
-# rcd2_multiphase_physics=true
-# student_physics=true
-lanl_physics=true
-
-################################################################################
-
-AM_CONDITIONAL([DEFAULT_PHYSICS], [test x$default_physics = xtrue])
-AM_CONDITIONAL([HYST_MULTIPHASE_PHYSICS],
-	[test x$hyst_multiphase_physics = xtrue])
-AM_CONDITIONAL([MPF_MULTIPHASE_PHYSICS],
-	[test x$mpf_multiphase_physics = xtrue])
-AM_CONDITIONAL([RCD_MULTIPHASE_PHYSICS],
-	[test x$rcd_multiphase_physics = xtrue])
-AM_CONDITIONAL([RCD2_MULTIPHASE_PHYSICS],
-	[test x$rcd2_multiphase_physics = xtrue])
-AM_CONDITIONAL([STUDENT_PHYSICS], [test x$student_physics = xtrue])
-AM_CONDITIONAL([LANL_PHYSICS], [test x$lanl_physics = xtrue])
-
 # Checks for programs.
 
 # For libtool 1.5.26:
