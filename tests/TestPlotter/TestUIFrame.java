@@ -6,28 +6,23 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class TestUIFrame extends JFrame {
-    private JPanel contentPane;
-    private JToolBar toolBar_ = new JToolBar();
-    private TestCanvas testCanvas_ = new TestCanvas();
+    private JToolBar tool_bar_ = new JToolBar();
+    private TestCanvas test_canvas_ = new TestCanvas();
 
     public TestUIFrame() {
-        this.setBounds(0, 0, 500, 110);
-        this.add(testCanvas_);
-        // The preceding two lines work only if the following three
-        // are commented out.  What's the right way to have both?
-        contentPane = (JPanel) this.getContentPane();
-        contentPane.setLayout(new FlowLayout());
-        contentPane.add(toolBar_);
-        this.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
+        Container content_pane = getContentPane();
+        content_pane.add(test_canvas_);
+        // The preceding line works only if the following one
+        // is commented out.  What's the right way to have both?
+        content_pane.add(tool_bar_);
+        // The next line does not work.
+        setSize(new Dimension(500, 150));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void setToolBar(List<AbstractButton> toolBar) {
-        Iterator it = toolBar.iterator();
-        while (it.hasNext())
-            toolBar_.add((AbstractButton) it.next());
+    public void setToolBar(List<AbstractButton> tool_bar) {
+        Iterator iter = tool_bar.iterator();
+        while (iter.hasNext())
+            tool_bar_.add((AbstractButton) iter.next());
     }
 }

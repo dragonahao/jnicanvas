@@ -1,5 +1,4 @@
 import java.awt.*;
-//import javax.swing.*;
 
 public class TestCanvas extends Canvas {
     static {
@@ -7,10 +6,4 @@ public class TestCanvas extends Canvas {
     }
 
     public native void paint(Graphics g);
-
-/*
-    public TestCanvas() {
-        super(new BorderLayout());
-    }
-*/
 }

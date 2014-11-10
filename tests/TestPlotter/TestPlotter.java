@@ -1,19 +1,18 @@
 public class TestPlotter {
-    private static TestUIFrame testUIFrame_ = new TestUIFrame();
+
+    public TestPlotter(String[] args) {
+        TestUIFrame test_ui_frame = new TestUIFrame();
+        TestUI test_ui = new TestUI();
+        test_ui_frame.setToolBar(test_ui.getToolBar());
+        test_ui_frame.pack();
+        test_ui_frame.setVisible(true);
+    }
 
     public static void main(final String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createUI(args);
+                new TestPlotter(args);
             }
         });
-    }
-
-    public static void createUI(String[] args) {
-        TestUI.init();
-
-        testUIFrame_.setToolBar(TestUI.getToolBar());
-        testUIFrame_.pack();
-        testUIFrame_.setVisible(true);
     }
 }
