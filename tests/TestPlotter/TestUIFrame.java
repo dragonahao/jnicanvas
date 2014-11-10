@@ -8,8 +8,13 @@ import javax.swing.*;
 public class TestUIFrame extends JFrame {
     private JPanel contentPane;
     private JToolBar toolBar_ = new JToolBar();
+    private TestCanvas testCanvas_ = new TestCanvas();
 
     public TestUIFrame() {
+        this.setBounds(0, 0, 500, 110);
+        this.add(testCanvas_);
+        // The preceding two lines work only if the following three
+        // are commented out.  What's the right way to have both?
         contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(new FlowLayout());
         contentPane.add(toolBar_);
