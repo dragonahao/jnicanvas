@@ -27,6 +27,8 @@ class Space2dModesChoice extends Choice {
         Space2d space_2d = new Space2d();
         Space2dModesChoice space_2d_modes_choice
                 = new Space2dModesChoice(panel, space_2d);
+        frame.setSize(300, 75);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 };
