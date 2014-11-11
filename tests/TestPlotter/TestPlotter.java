@@ -4,7 +4,6 @@ public class TestPlotter {
         TestUIFrame test_ui_frame = new TestUIFrame();
         TestUI test_ui = new TestUI();
         test_ui_frame.setToolBar(test_ui.getToolBar());
-        test_ui_frame.pack();
         test_ui_frame.setVisible(true);
     }
 

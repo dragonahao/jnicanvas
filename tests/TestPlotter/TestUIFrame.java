@@ -10,19 +10,17 @@ public class TestUIFrame extends JFrame {
     private TestCanvas test_canvas_ = new TestCanvas();
 
     public TestUIFrame() {
-        Container content_pane = getContentPane();
-        content_pane.add(test_canvas_);
-        // The preceding line works only if the following one
-        // is commented out.  What's the right way to have both?
-        content_pane.add(tool_bar_);
-        // The next line does not work.
-        setSize(new Dimension(500, 150));
+        JPanel content_pane = new JPanel(new BorderLayout());
+        content_pane.setBorder(BorderFactory.createEtchedBorder());
+        content_pane.add(test_canvas_, BorderLayout.CENTER);
+        content_pane.add(tool_bar_, BorderLayout.PAGE_END);
+        setSize(500, 200);
+        setContentPane(content_pane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void setToolBar(List<AbstractButton> tool_bar) {
-        Iterator iter = tool_bar.iterator();
-        while (iter.hasNext())
-            tool_bar_.add((AbstractButton) iter.next());
+        for (AbstractButton ab : tool_bar)
+            tool_bar_.add(ab);
     }
 }
