@@ -1,8 +1,10 @@
+package guiJava;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class Choice implements ActionListener {
+public class Choice implements ActionListener {
     private ButtonGroup group;
 
     public Choice(JPanel parent, String label, String[] strings, int value) {
