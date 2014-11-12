@@ -4,10 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Choice implements ActionListener {
+public class PanelChoice implements ActionListener {
     private ButtonGroup group;
 
-    public Choice(JPanel parent, String label, String[] strings, int value) {
+    public PanelChoice(JPanel parent, String label, String[] strings,
+            int value) {
         parent.add(new JLabel(label));
         group = new ButtonGroup();
         int i = 0;

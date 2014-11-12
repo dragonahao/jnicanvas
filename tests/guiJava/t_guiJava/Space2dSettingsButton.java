@@ -49,7 +49,33 @@ public class Space2dSettingsButton extends JButton implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
             System.out.println(event.getActionCommand());
+            if (event.getActionCommand() == "Apply")
+                applyProcedure();
+            else
+                resetProcedure();
         }
+    }
+
+    private void applyProcedure() {
+/*
+	space2d.height = space2dSettings.height.value();
+	System.out.println("Space2dApplyButton::proc(): height = "
+		+ space2d.height);
+	space2d.width = space2dSettings.width.value();
+	System.out.println("Space2dApplyButton::proc(): width = "
+		+ space2d.width);
+*/
+    }
+
+    private void resetProcedure() {
+/*
+	space2dSettings.height.value(space2d.height);
+	System.out.println("Space2dResetButton::proc(): height = "
+		+ space2d.height);
+	space2dSettings.width.value(space2d.width);
+	System.out.println("Space2dResetButton::proc(): width = "
+		+ space2d.width);
+*/
     }
 
     public static void main(final String[] args) {
@@ -64,63 +90,3 @@ public class Space2dSettingsButton extends JButton implements ActionListener {
         frame.setVisible(true);
     }
 }
-
-/*
-void
-Space2dApplyButton::proc(void)
-{
-	space2d.height = space2dSettings.height.value();
-	std::cerr << "Space2dApplyButton::proc(): height = "
-		<< space2d.height << "\n";
-	space2d.width = space2dSettings.width.value();
-	std::cerr << "Space2dApplyButton::proc(): width = "
-		<< space2d.width << "\n";
-}
-
-void
-Space2dResetButton::proc(void)
-{
-	space2dSettings.height.value(space2d.height);
-	std::cerr << "Space2dResetButton::proc(): height = "
-		<< space2d.height << "\n";
-	space2dSettings.width.value(space2d.width);
-	std::cerr << "Space2dResetButton::proc(): width = "
-		<< space2d.width << "\n";
-}
-
-Space2dSettings::Space2dSettings(const Frame parent, Space2d space2d,
-		int x__, int y__)
-    extends Frame(parent, x__, y__),
-	  Panel(*this, Panel::VERTICAL),
-	  height(*this),
-	  width(*this),
-	  apply(*this, space2d),
-	  reset(*this, space2d)
-{
-	display_label("Settings...");
-
-	height.display_label("Height:");
-	width.display_label("Width:");
-
-	reset.proc();
-
-	fit_height();
-	fit_width();
-}
-
-void
-Space2dSettings::show(void)
-{
-	reset.proc();
-	Frame::show();
-}
-
-Space2dSettingsButton::Space2dSettingsButton(const Panel parent__,
-	Space2d space2d_)
-    extends PanelButton(parent__),
-	  space2d(space2d_),
-	  space2dSettings(0)
-{
-	display_label("Settings...");
-}
-*/

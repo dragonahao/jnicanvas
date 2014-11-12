@@ -1,9 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import guiJava.Choice;
+import guiJava.PanelChoice;
 
-public class Space2dModesChoice extends Choice {
+public class Space2dModesChoice extends PanelChoice {
     private static final String label = "Modes:";
     private static final String[] strings = { "Vertical", "Horizontal" };
     private Space2d space2d;
