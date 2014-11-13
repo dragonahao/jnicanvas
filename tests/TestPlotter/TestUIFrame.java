@@ -1,8 +1,5 @@
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class TestUIFrame extends JFrame {

@@ -5,5 +5,19 @@ public class TestCanvas extends Canvas {
         System.loadLibrary("Paint");
     }
 
+    
+    private boolean changeColor;
+
+    public void changeColor(boolean changeColor) {
+        this.changeColor = changeColor;
+    }
+    
+    
+    
+    
+    
     public native void paint(Graphics g);
+    
+
+    
 }
