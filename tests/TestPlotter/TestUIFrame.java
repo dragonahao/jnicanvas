@@ -7,11 +7,11 @@ import javax.swing.*;
 
 public class TestUIFrame extends JFrame {
     private JToolBar tool_bar_ = new JToolBar();
-    private TestCanvas test_canvas_ = new TestCanvas();
 
     public TestUIFrame() {
         JPanel content_pane = new JPanel(new BorderLayout());
         content_pane.setBorder(BorderFactory.createEtchedBorder());
+        TestCanvas test_canvas_ = new TestCanvas();
         content_pane.add(test_canvas_, BorderLayout.CENTER);
         content_pane.add(tool_bar_, BorderLayout.PAGE_END);
         setSize(500, 200);
