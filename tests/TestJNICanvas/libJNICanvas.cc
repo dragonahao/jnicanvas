@@ -1,3 +1,5 @@
+#include<GL/glu.h>
+#include<GL/glx.h>
 #include <jawt_md.h>
 #include "JNICanvas.h"
 
@@ -5,6 +7,9 @@ static JAWT awt;
 static JAWT_DrawingSurface* ds;
 static JAWT_DrawingSurfaceInfo* dsi;
 static JAWT_X11DrawingSurfaceInfo* dsi_x11;
+static GC gc;
+
+#define TEST_OPENGL
 
 JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
 {
@@ -41,10 +46,39 @@ JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
 
     /* Get the platform-specific drawing info */
     dsi_x11 = (JAWT_X11DrawingSurfaceInfo*) dsi->platformInfo;
+
+    /* Create the X11 graphic context */
+    gc = XCreateGC(dsi_x11->display, dsi_x11->drawable, 0, 0);
+
+    Window root = DefaultRootWindow(dsi_x11->display);
+
+    GLint att[] = {GLX_RGBA, GLX_DEPTH_SIZE, 24, GLX_DOUBLEBUFFER, None};
+    XVisualInfo* vi = glXChooseVisual(dsi_x11->display, 0, att);
+
+    Colormap cmap = XCreateColormap(dsi_x11->display, root, vi->visual,
+        AllocNone);
+
+    // TODO:  Doesn't swa need to be either set or used?
+    XSetWindowAttributes swa;
+//    swa.colormap = cmap;
+//    swa.event_mask = ExposureMask | KeyPressMask;
+
+    GLXContext glc = glXCreateContext(dsi_x11->display, vi, NULL, GL_TRUE);
+
+    glXMakeCurrent(dsi_x11->display, dsi_x11->drawable, glc);
+
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glShadeModel(GL_SMOOTH);
 }
 
 JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject)
 {
+    /* Free the graphics context */
+    XFreeGC(dsi_x11->display, gc);
+
     /* Free the drawing surface info */
     ds->FreeDrawingSurfaceInfo(dsi);
 
@@ -59,7 +93,16 @@ JNIEXPORT void JNICALL Java_JNICanvas_paint(JNIEnv* env, jobject canvas,
         jobject graphics)
 {
     Java_JNICanvas_initialize(env, canvas);
-    GC gc = XCreateGC(dsi_x11->display, dsi_x11->drawable, 0, 0);
+#ifdef TEST_OPENGL
+    glColor4d(255, 0, 0, 0);
+    double x1 = -.8, y1 = -.5;
+    double x2 = .8, y2 = .5;
+    glBegin(GL_LINES);
+        glVertex2d(x1, y1);
+        glVertex2d(x2, y2);
+    glEnd();
+    glXSwapBuffers(dsi_x11->display, dsi_x11->drawable);
+#else /* pure X11 */
     XSetBackground(dsi_x11->display, gc, 0);
     for (int i=0; i<36;i++)
     {
@@ -71,6 +114,6 @@ JNIEXPORT void JNICALL Java_JNICanvas_paint(JNIEnv* env, jobject canvas,
     const char *testString = "^^^ rendered from native code ^^^";
     XDrawImageString(dsi_x11->display, dsi_x11->drawable, gc,
 			100, 110, testString, strlen(testString));
-    XFreeGC(dsi_x11->display, gc);
+#endif
     Java_JNICanvas_dispose(env, canvas);
 }
