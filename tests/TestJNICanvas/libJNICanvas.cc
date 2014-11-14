@@ -3,18 +3,24 @@
 #include<GL/glx.h>
 #include <jawt_md.h>
 #include "JNICanvas.h"
+#include "libJNICanvas.h"
 
+// variables shared by construct_graphics() and destruct_graphics()
+static bool is_graphics_constructed = false;
 static JAWT awt;
 static JAWT_DrawingSurface* ds;
 static JAWT_DrawingSurfaceInfo* dsi;
 static JAWT_X11DrawingSurfaceInfo* dsi_x11;
 static GC gc;
 
-#define TEST_OPENGL
-
-JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
+static void construct_graphics(JNIEnv *env, jobject canvas)
 {
-    std::cerr << "entering initialize\n";
+    std::cerr << "entering construct_graphics()\n";
+    std::cerr << "is_graphics_constructed = "
+        << is_graphics_constructed << "\n";
+    if (is_graphics_constructed)
+        return;
+
     /* Get the AWT */
     awt.version = JAWT_VERSION_1_3;
     if (JAWT_GetAWT(env, &awt) == JNI_FALSE) {
@@ -30,12 +36,7 @@ JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
     }
 
     /* Lock the drawing surface */
-    jint lock = ds->Lock(ds);
-    if((lock & JAWT_LOCK_ERROR) != 0) {
-        printf("JNICanvas::initialize: Error locking surface\n");
-        awt.FreeDrawingSurface(ds);
-        return;
-    }
+    lock();
 
     /* Get the drawing surface info */
     dsi = ds->GetDrawingSurfaceInfo(ds);
@@ -71,16 +72,21 @@ JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
 
     glXMakeCurrent(dsi_x11->display, dsi_x11->drawable, glc);
 
-    glClearColor(0.0, 0.0, 0.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glXSwapBuffers(dsi_x11->display, dsi_x11->drawable);
+    clear();
 
-    ds->Unlock(ds);
+    unlock();
+
+    is_graphics_constructed = true;
 }
 
-JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject)
+static void destruct_graphics(void)
 {
-    std::cerr << "entering dispose\n";
+    std::cerr << "entering destruct_graphics()\n";
+    std::cerr << "is_graphics_constructed = "
+        << is_graphics_constructed << "\n";
+    if (! is_graphics_constructed)
+        return;
+
     /* Free the graphics context */
     XFreeGC(dsi_x11->display, gc);
 
@@ -88,30 +94,70 @@ JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject)
     ds->FreeDrawingSurfaceInfo(dsi);
 
     /* Unlock the drawing surface */
-    ds->Unlock(ds);
+    unlock();
 
     /* Free the drawing surface */
     awt.FreeDrawingSurface(ds);
+
+    is_graphics_constructed = false;
+}
+
+void clear(void)
+{
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    swap_buffers();
+}
+
+void swap_buffers(void)
+{
+    glXSwapBuffers(dsi_x11->display, dsi_x11->drawable);
+}
+
+void lock(void)
+{
+    jint lock = ds->Lock(ds);
+    if((lock & JAWT_LOCK_ERROR) != 0) {
+        // TODO:  throw an exception?
+        printf("JNICanvas::lock():  Error locking drawing surface\n");
+        destruct_graphics();
+        return;
+    }
+}
+
+void unlock(void)
+{
+    ds->Unlock(ds);
+}
+
+JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+    std::cerr << "entering JNI_OnLoad()\n";
+    return JNI_VERSION_1_2;
+}
+
+JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas) {
+    std::cerr << "entering Java_JNICanvas_initialize()\n";
+    construct_graphics(env, canvas);
 }
 
 JNIEXPORT void JNICALL Java_JNICanvas_paint(JNIEnv* env, jobject canvas,
-        jobject graphics)
-{
-    std::cerr << "entering paint\n";
-    Java_JNICanvas_initialize(env, canvas);
+        jobject graphics) {
+    std::cerr << "entering Java_JNICanvas_paint()\n";
+    // count on paint() being called before any drawing is done
+    construct_graphics(env, canvas);
+    clear();
+}
+
+JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject) {
+    std::cerr << "entering Java_JNICanvas_dispose()\n";
+    destruct_graphics();
 }
 
 JNIEXPORT void JNICALL Java_JNICanvas_segment(JNIEnv *env, jobject canvas,
         jdouble x1, jdouble y1, jdouble x2, jdouble y2)
 {
-    std::cerr << "entering segment\n";
-    /* Lock the drawing surface */
-    jint lock = ds->Lock(ds);
-    if((lock & JAWT_LOCK_ERROR) != 0) {
-        printf("JNICanvas::initialize: Error locking surface\n");
-        awt.FreeDrawingSurface(ds);
-        return;
-    }
+    std::cerr << "entering Java_JNICanvas_segment()\n";
+    lock();
 
     glColor4d(255, 0, 0, 0);
     glBegin(GL_LINES);
@@ -119,7 +165,6 @@ JNIEXPORT void JNICALL Java_JNICanvas_segment(JNIEnv *env, jobject canvas,
         glVertex2d(x2, y2);
     glEnd();
 
-    glXSwapBuffers(dsi_x11->display, dsi_x11->drawable);
-
-    ds->Unlock(ds);
+    swap_buffers();
+    unlock();
 }

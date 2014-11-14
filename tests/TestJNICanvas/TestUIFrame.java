@@ -22,11 +22,6 @@ public class TestUIFrame extends JFrame {
         contentPane.add(toolBar, BorderLayout.PAGE_END);
         setSize(X_SIZE, Y_SIZE);
         setContentPane(contentPane);
-        // TODO:  The next three lines don't work.
-        canvasWidth = jniCanvas.getWidth();
-        canvasHeight = jniCanvas.getHeight();
-        System.out.println("width = " + canvasWidth
-            + ", height = " + canvasHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -35,28 +30,32 @@ public class TestUIFrame extends JFrame {
         }
 
         public void mouseClicked(MouseEvent e) {
-            System.out.println("clicked");
+            System.out.println("entered mouseClicked()");
+            // BUG:  This dimension is incorrect after resizing the window!
+            Dimension dim = jniCanvas.getSize();
+            System.out.println("width = " + dim.width + ", height = "
+                    + dim.height);
             System.out.println("X = " + e.getX() + ", Y = " + e.getY());
-            double x = 2.*e.getX()/488 - 1.;
-            double y = - 2.*e.getY()/140 + 1.;
+            double x = 2.*e.getX()/dim.width - 1.;
+            double y = - 2.*e.getY()/dim.height + 1.;
             System.out.println("x = " + x + ", y = " + y);
             jniCanvas.segment(x, y, x + .4, y + .4);
         }
 
         public void mouseEntered(MouseEvent e) {
-            System.out.println("entered");
+            System.out.println("entered mouseEntered()");
         }
 
         public void mouseExited(MouseEvent e) {
-            System.out.println("exited");
+            System.out.println("entered mouseExited()");
         }
 
         public void mousePressed(MouseEvent e) {
-            System.out.println("pressed");
+            System.out.println("entered mousePressed()");
         }
 
         public void mouseReleased(MouseEvent e) {
-            System.out.println("released");
+            System.out.println("entered mouseReleased()");
         }
     }
 
