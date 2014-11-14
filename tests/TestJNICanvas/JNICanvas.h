@@ -45,6 +45,14 @@ JNIEXPORT void JNICALL Java_JNICanvas_paint
 
 /*
  * Class:     JNICanvas
+ * Method:    segment
+ * Signature: (DDDD)V
+ */
+JNIEXPORT void JNICALL Java_JNICanvas_segment
+  (JNIEnv *, jobject, jdouble, jdouble, jdouble, jdouble);
+
+/*
+ * Class:     JNICanvas
  * Method:    dispose
  * Signature: ()V
  */

@@ -1,3 +1,4 @@
+#include <iostream>
 #include<GL/glu.h>
 #include<GL/glx.h>
 #include <jawt_md.h>
@@ -13,6 +14,7 @@ static GC gc;
 
 JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
 {
+    std::cerr << "entering initialize\n";
     /* Get the AWT */
     awt.version = JAWT_VERSION_1_3;
     if (JAWT_GetAWT(env, &awt) == JNI_FALSE) {
@@ -65,17 +67,20 @@ JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas)
 
     GLXContext glc = glXCreateContext(dsi_x11->display, vi, NULL, GL_TRUE);
 
+    glShadeModel(GL_SMOOTH);
+
     glXMakeCurrent(dsi_x11->display, dsi_x11->drawable, glc);
 
     glClearColor(0.0, 0.0, 0.0, 1.0);
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glXSwapBuffers(dsi_x11->display, dsi_x11->drawable);
 
-    glShadeModel(GL_SMOOTH);
+    ds->Unlock(ds);
 }
 
 JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject)
 {
+    std::cerr << "entering dispose\n";
     /* Free the graphics context */
     XFreeGC(dsi_x11->display, gc);
 
@@ -92,28 +97,29 @@ JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject)
 JNIEXPORT void JNICALL Java_JNICanvas_paint(JNIEnv* env, jobject canvas,
         jobject graphics)
 {
+    std::cerr << "entering paint\n";
     Java_JNICanvas_initialize(env, canvas);
-#ifdef TEST_OPENGL
+}
+
+JNIEXPORT void JNICALL Java_JNICanvas_segment(JNIEnv *env, jobject canvas,
+        jdouble x1, jdouble y1, jdouble x2, jdouble y2)
+{
+    std::cerr << "entering segment\n";
+    /* Lock the drawing surface */
+    jint lock = ds->Lock(ds);
+    if((lock & JAWT_LOCK_ERROR) != 0) {
+        printf("JNICanvas::initialize: Error locking surface\n");
+        awt.FreeDrawingSurface(ds);
+        return;
+    }
+
     glColor4d(255, 0, 0, 0);
-    double x1 = -.8, y1 = -.5;
-    double x2 = .8, y2 = .5;
     glBegin(GL_LINES);
         glVertex2d(x1, y1);
         glVertex2d(x2, y2);
     glEnd();
+
     glXSwapBuffers(dsi_x11->display, dsi_x11->drawable);
-#else /* pure X11 */
-    XSetBackground(dsi_x11->display, gc, 0);
-    for (int i=0; i<36;i++)
-    {
-	XSetForeground(dsi_x11->display, gc, 10*i);
-	XFillRectangle(dsi_x11->display, dsi_x11->drawable, gc,
-                10*i, 5, 90, 90);
-    }
-    XSetForeground(dsi_x11->display, gc, 155);
-    const char *testString = "^^^ rendered from native code ^^^";
-    XDrawImageString(dsi_x11->display, dsi_x11->drawable, gc,
-			100, 110, testString, strlen(testString));
-#endif
-    Java_JNICanvas_dispose(env, canvas);
+
+    ds->Unlock(ds);
 }

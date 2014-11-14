@@ -1,8 +1,8 @@
 public class TestJNICanvas {
 
     public TestJNICanvas(String[] args) {
-        TestUIFrame testUIFrame = new TestUIFrame();
         TestUI testUI = new TestUI();
+        TestUIFrame testUIFrame = new TestUIFrame();
         testUIFrame.setToolBar(testUI.getToolBar());
         testUIFrame.setVisible(true);
     }
