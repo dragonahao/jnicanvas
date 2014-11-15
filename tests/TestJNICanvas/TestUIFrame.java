@@ -30,32 +30,32 @@ public class TestUIFrame extends JFrame {
         }
 
         public void mouseClicked(MouseEvent e) {
-            System.out.println("entered mouseClicked()");
+            System.err.println("entered mouseClicked()");
             // BUG:  This dimension is incorrect after resizing the window!
             Dimension dim = jniCanvas.getSize();
-            System.out.println("width = " + dim.width + ", height = "
+            System.err.println("width = " + dim.width + ", height = "
                     + dim.height);
-            System.out.println("X = " + e.getX() + ", Y = " + e.getY());
+            System.err.println("X = " + e.getX() + ", Y = " + e.getY());
             double x = 2.*e.getX()/dim.width - 1.;
             double y = - 2.*e.getY()/dim.height + 1.;
-            System.out.println("x = " + x + ", y = " + y);
+            System.err.println("x = " + x + ", y = " + y);
             jniCanvas.segment(x, y, x + .4, y + .4);
         }
 
         public void mouseEntered(MouseEvent e) {
-            System.out.println("entered mouseEntered()");
+            System.err.println("entered mouseEntered()");
         }
 
         public void mouseExited(MouseEvent e) {
-            System.out.println("entered mouseExited()");
+            System.err.println("entered mouseExited()");
         }
 
         public void mousePressed(MouseEvent e) {
-            System.out.println("entered mousePressed()");
+            System.err.println("entered mousePressed()");
         }
 
         public void mouseReleased(MouseEvent e) {
-            System.out.println("entered mouseReleased()");
+            System.err.println("entered mouseReleased()");
         }
     }
 

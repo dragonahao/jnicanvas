@@ -32,8 +32,10 @@ extern "C" {
  * Method:    initialize
  * Signature: ()V
  */
+/*
 JNIEXPORT void JNICALL Java_JNICanvas_initialize
   (JNIEnv *, jobject);
+*/
 
 /*
  * Class:     JNICanvas
@@ -56,8 +58,10 @@ JNIEXPORT void JNICALL Java_JNICanvas_segment
  * Method:    dispose
  * Signature: ()V
  */
+/*
 JNIEXPORT void JNICALL Java_JNICanvas_dispose
   (JNIEnv *, jobject);
+*/
 
 #ifdef __cplusplus
 }

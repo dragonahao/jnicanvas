@@ -28,7 +28,7 @@ public class TestUI {
 
         public void actionPerformed(ActionEvent e) {
             String cmd = e.getActionCommand();
-            System.out.println(cmd + " pressed");
+            System.err.println(cmd + " pressed");
         }
     }
 }

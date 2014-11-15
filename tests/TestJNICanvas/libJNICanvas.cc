@@ -135,10 +135,12 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     return JNI_VERSION_1_2;
 }
 
+/*
 JNIEXPORT void JNICALL Java_JNICanvas_initialize(JNIEnv *env, jobject canvas) {
     std::cerr << "entering Java_JNICanvas_initialize()\n";
     construct_graphics(env, canvas);
 }
+*/
 
 JNIEXPORT void JNICALL Java_JNICanvas_paint(JNIEnv* env, jobject canvas,
         jobject graphics) {
@@ -148,10 +150,12 @@ JNIEXPORT void JNICALL Java_JNICanvas_paint(JNIEnv* env, jobject canvas,
     clear();
 }
 
+/*
 JNIEXPORT void JNICALL Java_JNICanvas_dispose(JNIEnv *, jobject) {
     std::cerr << "entering Java_JNICanvas_dispose()\n";
     destruct_graphics();
 }
+*/
 
 JNIEXPORT void JNICALL Java_JNICanvas_segment(JNIEnv *env, jobject canvas,
         jdouble x1, jdouble y1, jdouble x2, jdouble y2)
