@@ -56,8 +56,8 @@ Graphics2DOpenGL::Graphics2DOpenGL(JNIEnv * env, jobject canvas) {
 
     glc = glXCreateContext(dsi_x11->display, vi, NULL, GL_TRUE);
 
+    
     glXMakeCurrent(dsi_x11->display, dsi_x11->drawable, glc);
-
 
     glClearColor(0.0, 0.0, 0.0, 1.0);
 
@@ -71,8 +71,6 @@ Graphics2DOpenGL::Graphics2DOpenGL(JNIEnv * env, jobject canvas) {
 
 
 }
-
-
 
 
 void Graphics2DOpenGL::drawPoint(double x, double y, double z) {

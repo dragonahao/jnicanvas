@@ -45,6 +45,9 @@ public:
 
 
     Graphics2DOpenGL(JNIEnv *, jobject);
+    
+    
+
 
     void drawSegment(double, double, double, double,double,double);
     
