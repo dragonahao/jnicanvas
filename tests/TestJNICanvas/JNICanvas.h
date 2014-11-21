@@ -43,6 +43,14 @@ JNIEXPORT void JNICALL Java_JNICanvas_paint
 JNIEXPORT void JNICALL Java_JNICanvas_segment
   (JNIEnv *, jobject, jdouble, jdouble, jdouble, jdouble);
 
+/*
+ * Class:     JNICanvas
+ * Method:    timing
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_JNICanvas_timing
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
