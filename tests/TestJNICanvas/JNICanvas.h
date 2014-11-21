@@ -29,16 +29,6 @@ extern "C" {
 #define JNICanvas_serialVersionUID -2284879212465893870LL
 /*
  * Class:     JNICanvas
- * Method:    initialize
- * Signature: ()V
- */
-/*
-JNIEXPORT void JNICALL Java_JNICanvas_initialize
-  (JNIEnv *, jobject);
-*/
-
-/*
- * Class:     JNICanvas
  * Method:    paint
  * Signature: (Ljava/awt/Graphics;)V
  */
@@ -52,16 +42,6 @@ JNIEXPORT void JNICALL Java_JNICanvas_paint
  */
 JNIEXPORT void JNICALL Java_JNICanvas_segment
   (JNIEnv *, jobject, jdouble, jdouble, jdouble, jdouble);
-
-/*
- * Class:     JNICanvas
- * Method:    dispose
- * Signature: ()V
- */
-/*
-JNIEXPORT void JNICALL Java_JNICanvas_dispose
-  (JNIEnv *, jobject);
-*/
 
 #ifdef __cplusplus
 }
