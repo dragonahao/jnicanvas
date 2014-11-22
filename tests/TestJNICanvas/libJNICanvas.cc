@@ -17,9 +17,9 @@ static GLXContext glc;
 static void
 construct_graphics(JNIEnv *env, jobject canvas)
 {
-    std::cerr << "entering construct_graphics()\n";
-    std::cerr << "construct_graphics:  is_graphics_constructed = "
-        << is_graphics_constructed << "\n";
+//    std::cerr << "entering construct_graphics()\n";
+//    std::cerr << "construct_graphics:  is_graphics_constructed = "
+//        << is_graphics_constructed << "\n";
     if (is_graphics_constructed)
         return;
 
@@ -84,9 +84,9 @@ construct_graphics(JNIEnv *env, jobject canvas)
 static void
 destruct_graphics(void)
 {
-    std::cerr << "entering destruct_graphics()\n";
-    std::cerr << "destruct_graphics:  is_graphics_constructed = "
-        << is_graphics_constructed << "\n";
+//    std::cerr << "entering destruct_graphics()\n";
+//    std::cerr << "destruct_graphics:  is_graphics_constructed = "
+//        << is_graphics_constructed << "\n";
     if (! is_graphics_constructed)
         return;
 
@@ -167,9 +167,9 @@ Java_JNICanvas_paint(JNIEnv* env, jobject canvas, jobject graphics) {
 
 JNIEXPORT void JNICALL
 Java_JNICanvas_timing(JNIEnv* env, jobject canvas) {
-    std::cerr << "entering Java_JNICanvas_timing()\n";
+//    std::cerr << "entering Java_JNICanvas_timing()\n";
     destruct_graphics();
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
         construct_graphics(env, canvas);
         destruct_graphics();
     }
