@@ -49,7 +49,7 @@ JNIEXPORT void JNICALL Java_JNICanvas_JNICanvas_segment
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_JNICanvas_JNICanvas_timing
-  (JNIEnv *, jobject);
+  (JNIEnv *, jclass);
 
 #ifdef __cplusplus
 }

@@ -7,15 +7,13 @@ import javax.swing.*;
 
 public class TestUI {
     private List<AbstractButton> toolBar;
-    private TestButton testButton1, testButton2;
+    private TestButton testButton;
 
     public TestUI() {
         toolBar = new ArrayList<AbstractButton>();
 
-        testButton1 = new TestButton("testButton 1");
-        toolBar.add(testButton1);
-        testButton2 = new TestButton("testButton 2");
-        toolBar.add(testButton2);
+        testButton = new TestButton("timing");
+        toolBar.add(testButton);
     }
 
     public List<AbstractButton> getToolBar() {
@@ -31,6 +29,8 @@ public class TestUI {
         public void actionPerformed(ActionEvent e) {
             String cmd = e.getActionCommand();
             System.err.println(cmd + " pressed");
+            JNICanvas.timing();
+            System.err.println("timing completed");
         }
     }
 }

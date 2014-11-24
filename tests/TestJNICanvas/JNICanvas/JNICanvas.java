@@ -7,9 +7,7 @@ public class JNICanvas extends Canvas {
         System.loadLibrary("JNICanvas");
     }
 
-//    public native void initialize();
     public native void paint(Graphics g);
     public native void segment(double x1, double y1, double x2, double y2);
-    public native void timing();
-//    public native void dispose();
+    public native static void timing();
 }

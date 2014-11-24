@@ -167,7 +167,7 @@ Java_JNICanvas_JNICanvas_paint(JNIEnv* env, jobject canvas, jobject graphics) {
 }
 
 JNIEXPORT void JNICALL
-Java_JNICanvas_JNICanvas_timing(JNIEnv* env, jobject canvas) {
+Java_JNICanvas_JNICanvas_timing(JNIEnv* env, jclass) {
     std::cerr << "entering Java_JNICanvas_JNICanvas_timing()\n";
 /*
     destruct_graphics();
@@ -178,7 +178,7 @@ Java_JNICanvas_JNICanvas_timing(JNIEnv* env, jobject canvas) {
     construct_graphics(env, canvas);
 */
     XFreeGC(dsi_x11->display, gc);
-    for (int i = 0; i < 100000; ++i) {
+    for (int i = 0; i < 10000; ++i) {
         gc = XCreateGC(dsi_x11->display, dsi_x11->drawable, 0, 0);
         XFreeGC(dsi_x11->display, gc);
     }

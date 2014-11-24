@@ -47,7 +47,6 @@ public class TestUIFrame extends JFrame {
 
         public void mouseEntered(MouseEvent e) {
             System.err.println("entered mouseEntered()");
-            jniCanvas.timing();
         }
 
         public void mouseExited(MouseEvent e) {
