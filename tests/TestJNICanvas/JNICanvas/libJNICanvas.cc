@@ -74,7 +74,7 @@ construct_graphics(JNIEnv *env, jobject canvas)
 
     glShadeModel(GL_SMOOTH);
 
-    clear();
+//    clear();
 
     unlock();
 
@@ -97,7 +97,8 @@ destruct_graphics(void)
     ds->FreeDrawingSurfaceInfo(dsi);
 
     /* Unlock the drawing surface */
-    unlock();
+    // BUG:  causes IllegalMonitorStateException
+//    unlock();
 
     /* Free the drawing surface */
     awt.FreeDrawingSurface(ds);
@@ -167,9 +168,9 @@ Java_JNICanvas_JNICanvas_paint(JNIEnv* env, jobject canvas, jobject graphics) {
 
 JNIEXPORT void JNICALL
 Java_JNICanvas_JNICanvas_timing(JNIEnv* env, jobject canvas) {
-//    std::cerr << "entering Java_JNICanvas_JNICanvas_timing()\n";
+    std::cerr << "entering Java_JNICanvas_JNICanvas_timing()\n";
     destruct_graphics();
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 1000; ++i) {
         construct_graphics(env, canvas);
         destruct_graphics();
     }
@@ -189,6 +190,7 @@ Java_JNICanvas_JNICanvas_segment(JNIEnv *env, jobject canvas,
         jdouble x1, jdouble y1, jdouble x2, jdouble y2)
 {
     std::cerr << "entering Java_JNICanvas_JNICanvas_segment()\n";
+    construct_graphics(env, canvas);
     make_current();
     lock();
 
@@ -200,4 +202,5 @@ Java_JNICanvas_JNICanvas_segment(JNIEnv *env, jobject canvas,
 
     swap_buffers();
     unlock();
+    destruct_graphics();
 }

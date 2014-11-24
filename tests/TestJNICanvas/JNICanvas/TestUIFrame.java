@@ -13,7 +13,6 @@ public class TestUIFrame extends JFrame {
 
     private JToolBar toolBar = new JToolBar();
     private JNICanvas jniCanvas = new JNICanvas();
-    private int canvasWidth, canvasHeight;
 
     public TestUIFrame() {
         JPanel contentPane = new JPanel(new BorderLayout());
@@ -21,6 +20,8 @@ public class TestUIFrame extends JFrame {
         contentPane.add(jniCanvas, BorderLayout.CENTER);
         CanvasListener canvasListener = new CanvasListener();
         jniCanvas.addMouseListener(canvasListener);
+        CanvasMotionListener canvasMotionListener = new CanvasMotionListener();
+        jniCanvas.addMouseMotionListener(canvasMotionListener);
         contentPane.add(toolBar, BorderLayout.PAGE_END);
         setSize(X_SIZE, Y_SIZE);
         setContentPane(contentPane);
@@ -59,6 +60,25 @@ public class TestUIFrame extends JFrame {
 
         public void mouseReleased(MouseEvent e) {
             System.err.println("entered mouseReleased()");
+        }
+    }
+
+    private class CanvasMotionListener implements MouseMotionListener {
+        public void mouseMoved(MouseEvent e) {
+            System.err.println("entered mouseMoved()");
+        }
+
+        public void mouseDragged(MouseEvent e) {
+            System.err.println("entered mouseDragged()");
+            // BUG:  This dimension is incorrect after resizing the window!
+            Dimension dim = jniCanvas.getSize();
+            System.err.println("width = " + dim.width + ", height = "
+                    + dim.height);
+            System.err.println("X = " + e.getX() + ", Y = " + e.getY());
+            double x = 2.*e.getX()/dim.width - 1.;
+            double y = - 2.*e.getY()/dim.height + 1.;
+            System.err.println("x = " + x + ", y = " + y);
+            jniCanvas.segment(x, y, x + .4, y + .4);
         }
     }
 
