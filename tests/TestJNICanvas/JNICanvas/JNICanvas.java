@@ -1,3 +1,5 @@
+package JNICanvas;
+
 import java.awt.*;
 
 public class JNICanvas extends Canvas {

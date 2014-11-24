@@ -158,16 +158,16 @@ Java_JNICanvas_initialize(JNIEnv *env, jobject canvas) {
 */
 
 JNIEXPORT void JNICALL
-Java_JNICanvas_paint(JNIEnv* env, jobject canvas, jobject graphics) {
-    std::cerr << "entering Java_JNICanvas_paint()\n";
+Java_JNICanvas_JNICanvas_paint(JNIEnv* env, jobject canvas, jobject graphics) {
+    std::cerr << "entering Java_JNICanvas_JNICanvas_paint()\n";
     // count on paint() being called before any drawing is done
     construct_graphics(env, canvas);
     clear();
 }
 
 JNIEXPORT void JNICALL
-Java_JNICanvas_timing(JNIEnv* env, jobject canvas) {
-//    std::cerr << "entering Java_JNICanvas_timing()\n";
+Java_JNICanvas_JNICanvas_timing(JNIEnv* env, jobject canvas) {
+//    std::cerr << "entering Java_JNICanvas_JNICanvas_timing()\n";
     destruct_graphics();
     for (int i = 0; i < 100; ++i) {
         construct_graphics(env, canvas);
@@ -178,17 +178,17 @@ Java_JNICanvas_timing(JNIEnv* env, jobject canvas) {
 
 /*
 JNIEXPORT void JNICALL
-Java_JNICanvas_dispose(JNIEnv *, jobject) {
-    std::cerr << "entering Java_JNICanvas_dispose()\n";
+Java_JNICanvas_JNICanvas_dispose(JNIEnv *, jobject) {
+    std::cerr << "entering Java_JNICanvas_JNICanvas_dispose()\n";
     destruct_graphics();
 }
 */
 
 JNIEXPORT void JNICALL
-Java_JNICanvas_segment(JNIEnv *env, jobject canvas,
+Java_JNICanvas_JNICanvas_segment(JNIEnv *env, jobject canvas,
         jdouble x1, jdouble y1, jdouble x2, jdouble y2)
 {
-    std::cerr << "entering Java_JNICanvas_segment()\n";
+    std::cerr << "entering Java_JNICanvas_JNICanvas_segment()\n";
     make_current();
     lock();
 

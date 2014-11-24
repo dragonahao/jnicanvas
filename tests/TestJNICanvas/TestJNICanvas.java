@@ -1,3 +1,6 @@
+import JNICanvas.TestUI;
+import JNICanvas.TestUIFrame;
+
 public class TestJNICanvas {
 
     public TestJNICanvas(String[] args) {
